@@ -139,6 +139,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paddle: {fileID: 0}
   ballPunchPower: 15
+  ballAudioClips:
+  - {fileID: 8300000, guid: e970e49c41d374258abd373cf7198bfe, type: 3}
+  - {fileID: 8300000, guid: e29cc5642cc2546c2b3f6e94f72cc67c, type: 3}
+  - {fileID: 8300000, guid: 3925ed54ab5d44da697ceb2c63d2fdf7, type: 3}
 --- !u!82 &3209463720950704097
 AudioSource:
   m_ObjectHideFlags: 0
