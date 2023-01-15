@@ -368,6 +368,7 @@ GameObject:
   - component: {fileID: 1227168338}
   - component: {fileID: 1227168337}
   - component: {fileID: 1227168339}
+  - component: {fileID: 1227168340}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: Untagged
@@ -475,6 +476,19 @@ PolygonCollider2D:
       - {x: 1, y: -0.25}
       - {x: 0.99609375, y: 0.03840542}
       - {x: 0.80670834, y: 0.12600994}
+--- !u!114 &1227168340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227168336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350a9e8f788c9436e9413cf393b2c66f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenWidthInUnits: 16
 --- !u!1 &1503929041
 GameObject:
   m_ObjectHideFlags: 0

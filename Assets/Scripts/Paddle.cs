@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	[SerializeField] private float screenWidthInUnits = 16f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private Vector2 _paddlePos;
+
+	private void Update()
+	{
+		var mousePosition = Input.mousePosition.x / Screen.width * screenWidthInUnits;
+		_paddlePos.x = mousePosition;
+		var paddleTransform = transform;
+		_paddlePos.y = paddleTransform.position.y;
+		paddleTransform.position = _paddlePos;
+	}
 }
