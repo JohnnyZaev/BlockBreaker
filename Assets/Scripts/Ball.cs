@@ -1,10 +1,13 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Ball : MonoBehaviour
 {
 	[SerializeField] private Paddle paddle;
 	[SerializeField] private float ballPunchPower = 15f;
 
+	private AudioSource _ballAudioSource;
 	private Vector3 _offset;
 	private Rigidbody2D _ballRb;
 	private Vector2 _ballVel;
@@ -14,6 +17,7 @@ public class Ball : MonoBehaviour
     {
 	    _offset = transform.position - paddle.transform.position;
 	    _ballRb = GetComponent<Rigidbody2D>();
+	    _ballAudioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -26,5 +30,12 @@ public class Ball : MonoBehaviour
 	    _ballVel.y = ballPunchPower;
 	    _ballRb.velocity = _ballVel;
 	    _hasStarted = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+	    if (!_hasStarted)
+		    return;
+	    _ballAudioSource.Play();
     }
 }
