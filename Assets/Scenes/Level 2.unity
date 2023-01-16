@@ -187,6 +187,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2315670781622756293, guid: 0ff603c7cb4004d3f82d4bb8aee29531, type: 3}
+      propertyPath: breakSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e0afdfab57de4d40b441b5035dc8339, type: 3}
     - target: {fileID: 2315670781622756295, guid: 0ff603c7cb4004d3f82d4bb8aee29531, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
