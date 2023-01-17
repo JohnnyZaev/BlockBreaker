@@ -15,7 +15,9 @@ public class GameStatus : MonoBehaviour
 		var gameStatusCount = FindObjectsOfType<GameStatus>().Length;
 		if (gameStatusCount > 1)
 		{
-			Destroy(gameObject);
+			GameObject o;
+			(o = gameObject).SetActive(false);
+			Destroy(o);
 		}
 		else
 		{
