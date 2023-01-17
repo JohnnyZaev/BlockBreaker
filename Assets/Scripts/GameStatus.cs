@@ -10,6 +10,19 @@ public class GameStatus : MonoBehaviour
 	[SerializeField] private int pointsPerBlockDestroyed = 15;
 	[SerializeField] private int currentScore;
 
+	private void Awake()
+	{
+		var gameStatusCount = FindObjectsOfType<GameStatus>().Length;
+		if (gameStatusCount > 1)
+		{
+			Destroy(gameObject);
+		}
+		else
+		{
+			DontDestroyOnLoad(gameObject);
+		}
+	}
+
 	private void Start()
 	{
 		scoreText.text = currentScore.ToString();
