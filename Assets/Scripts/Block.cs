@@ -10,16 +10,18 @@ public class Block : MonoBehaviour
 	// cached reference
 	private Level _level;
 	private GameStatus _gameStatus;
+	private SpriteRenderer _spriteRenderer;
 
 	//state variable
 	[SerializeField] private int timesHit; // TODO only serialize for debug
-	private int maxHits;
+	private int _maxHits;
 
 	private void Start()
 	{
 		if (gameObject.CompareTag("Unbreakable"))
 			return;
-		maxHits = hitSprites.Length + 1;
+		_spriteRenderer = GetComponent<SpriteRenderer>();
+		_maxHits = hitSprites.Length + 1;
 		_level = FindObjectOfType<Level>();
 		_level.CountBreakableBlocks();
 		_gameStatus = FindObjectOfType<GameStatus>();
@@ -30,7 +32,7 @@ public class Block : MonoBehaviour
 		if (gameObject.CompareTag("Unbreakable"))
 			return;
 		timesHit++;
-		if (timesHit >= maxHits)
+		if (timesHit >= _maxHits)
 		{
 			BlockDestroyed();
 		}
@@ -45,7 +47,7 @@ public class Block : MonoBehaviour
 		var spriteIndex = timesHit - 1;
 		if (hitSprites[spriteIndex] != null)
 		{
-			GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
+			_spriteRenderer.sprite = hitSprites[spriteIndex];
 		}
 		else
 		{
