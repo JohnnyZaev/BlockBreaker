@@ -2,11 +2,17 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+	//config params
 	[SerializeField] private AudioClip breakSound;
 	[SerializeField] private GameObject blockSparklesVFX;
+	[SerializeField] private int maxHits;
 
+	// cached reference
 	private Level _level;
 	private GameStatus _gameStatus;
+	
+	//state variable
+	[SerializeField] private int timesHit; // TODO only serialize for debug
 
 	private void Start()
 	{
@@ -21,7 +27,9 @@ public class Block : MonoBehaviour
 	{
 		if (gameObject.CompareTag("Unbreakable"))
 			return;
-		BlockDestroyed();
+		timesHit++;
+		if (timesHit >= maxHits)
+			BlockDestroyed();
 	}
 
 	private void BlockDestroyed()
