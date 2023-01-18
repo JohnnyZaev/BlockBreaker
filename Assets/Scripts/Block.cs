@@ -10,6 +10,8 @@ public class Block : MonoBehaviour
 
 	private void Start()
 	{
+		if (gameObject.CompareTag("Unbreakable"))
+			return;
 		_level = FindObjectOfType<Level>();
 		_level.CountBreakableBlocks();
 		_gameStatus = FindObjectOfType<GameStatus>();
@@ -17,6 +19,8 @@ public class Block : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D col)
 	{
+		if (gameObject.CompareTag("Unbreakable"))
+			return;
 		BlockDestroyed();
 	}
 
